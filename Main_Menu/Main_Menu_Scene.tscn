@@ -1,0 +1,312 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Assets/Ui/Button_Pressed.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Ui/Button_Hover.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Ui/Button_Normal.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Main_Menu/Main_Menu.gd" type="Script" id=5]
+[ext_resource path="res://Main_Menu/Fading_Effect.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/1_1Story.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Ui/Button_Pressed_Small.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Ui/Button_Hover_Small.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Ui/Button_Normal_Small.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sound/Music/MainMenu-Ordinary.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Main_Menu/MainMenu_Player_Scene.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Ui/Check_UI.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Ui/CheckDone_UI.png" type="Texture" id=14]
+[ext_resource path="res://Main_Menu/BackgroundMap.png" type="Texture" id=15]
+[ext_resource path="res://Main_Menu/EffectsLayer.png" type="Texture" id=16]
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+outline_size = 8
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 1
+font_data = ExtResource( 4 )
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 5 )
+GoTo = ExtResource( 7 )
+CameraEcSpeed = 20
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -2116.0
+margin_top = -360.0
+margin_right = 1000.0
+margin_bottom = 360.0
+texture = ExtResource( 15 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EffectsLayer" type="Sprite" parent="."]
+position = Vector2( -400, 0 )
+scale = Vector2( 1.34062, 1 )
+texture = ExtResource( 16 )
+
+[node name="Menu_Position" type="Node2D" parent="."]
+
+[node name="Options_Position" type="Node2D" parent="."]
+position = Vector2( -1360, 0 )
+
+[node name="Play" type="TextureButton" parent="."]
+anchor_left = -0.234
+anchor_top = -0.133
+anchor_right = -0.234
+anchor_bottom = -0.133
+margin_left = -292.48
+margin_top = -224.24
+margin_right = 179.52
+margin_bottom = -32.24
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayLabel" type="Label" parent="Play"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 432.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.462745, 0.258824, 0.541176, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Play"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="TextureButton" parent="."]
+anchor_left = -0.234
+anchor_top = -0.133
+anchor_right = -0.234
+anchor_bottom = -0.133
+margin_left = -292.48
+margin_top = -0.239998
+margin_right = 179.52
+margin_bottom = 191.76
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsLabel" type="Label" parent="Options"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 432.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.462745, 0.258824, 0.541176, 1 )
+text = "Options"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="TextureButton" parent="."]
+anchor_left = -0.234
+anchor_top = -0.133
+anchor_right = -0.234
+anchor_bottom = -0.133
+margin_left = -236.48
+margin_top = 223.76
+margin_right = 123.52
+margin_bottom = 415.76
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsLabel2" type="Label" parent="Exit"]
+margin_left = 48.0
+margin_top = 40.0
+margin_right = 312.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.0862745, 0.129412, 1 )
+text = "Exit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="TextureButton" parent="."]
+anchor_left = -0.234
+anchor_top = -0.133
+anchor_right = -0.234
+anchor_bottom = -0.133
+margin_left = -892.48
+margin_top = 223.76
+margin_right = -532.48
+margin_bottom = 415.76
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsLabel2" type="Label" parent="Back"]
+margin_left = 48.0
+margin_top = 40.0
+margin_right = 312.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.0862745, 0.129412, 1 )
+text = "Back"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="TextureButton" parent="."]
+margin_left = -1920.0
+margin_top = -320.0
+margin_right = -1792.0
+margin_bottom = -192.0
+toggle_mode = true
+shortcut_in_tooltip = false
+pressed = true
+action_mode = 0
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="Label" parent="Music"]
+margin_left = 128.0
+margin_top = 16.0
+margin_right = 392.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.0862745, 0.129412, 1 )
+text = "Music"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FX" type="TextureButton" parent="."]
+margin_left = -1920.0
+margin_top = -128.0
+margin_right = -1792.0
+toggle_mode = true
+shortcut_in_tooltip = false
+pressed = true
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fx" type="Label" parent="FX"]
+margin_left = 128.0
+margin_top = 16.0
+margin_right = 304.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.0862745, 0.129412, 1 )
+text = "FX"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 12 )]
+position = Vector2( 447.494, 58.4589 )
+scale = Vector2( 11.5806, 11.5806 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -1360, 0 )
+current = true
+
+[node name="FadingEffect" type="Sprite" parent="Camera2D"]
+visible = false
+scale = Vector2( 80, 45 )
+texture = ExtResource( 6 )
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="Camera2D"]
+stream = ExtResource( 11 )
+autoplay = true
+bus = "Music"
+
+[node name="Credit" type="RichTextLabel" parent="."]
+margin_left = -1920.0
+margin_top = 16.0
+margin_right = -1408.0
+margin_bottom = 320.0
+focus_mode = 2
+custom_fonts/normal_font = SubResource( 2 )
+text = "Developer And Creater:
+Muktada Creations
+
+Submitted To:
+GameDev.tv Community Jam by
+ Yang Pulse, Theme: Time
+
+All The Music From The game is from Bonnot on:
+bonnot.newgrounds.com
+
+msg: Hi this would be my first game to release for a game jam all by my own and I didnt even took use of the gamejam full time since I started at half of the jam ._. but it doesn't matter I just hope you love the game and enjoy it I dont know if I'am going to fully finish it somedoy but who knows :)"
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Softwere" type="RichTextLabel" parent="."]
+margin_left = -1291.0
+margin_top = -304.0
+margin_right = -751.0
+margin_bottom = -96.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 1, 0.898039, 0, 1 )
+text = "Game Engine: Godot
+
+Graphics: Aseprite and Affinty Photo and Blender
+
+Sound: BFXR and Reaper DAW
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Play" to="." method="_on_Play_button_down"]
+[connection signal="button_down" from="Options" to="." method="_on_Options_button_down"]
+[connection signal="button_down" from="Exit" to="." method="_on_Exit_button_down"]
+[connection signal="button_down" from="Back" to="." method="_on_Back_button_down"]

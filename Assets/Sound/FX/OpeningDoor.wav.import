@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/OpeningDoor.wav-3b85975a51ab6352368493c18efe3a97.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/FX/OpeningDoor.wav"
+dest_files=[ "res://.import/OpeningDoor.wav-3b85975a51ab6352368493c18efe3a97.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

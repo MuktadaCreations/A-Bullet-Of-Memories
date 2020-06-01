@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Kinematics/TextFrame/TextFrame.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/JustBlack.png" type="Texture" id=2]
+[ext_resource path="res://Assets/DeadImage/Picture_Final.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Finally_script.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Sound/Music/TheOutSiders_887055.ogg" type="AudioStream" id=5]
+
+[node name="Finally" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+scale = Vector2( 7.9782, 4.48533 )
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.51768, 0.51768 )
+texture = ExtResource( 3 )
+
+[node name="TextFrame" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3.63798e-12, 3.63798e-12 )
+TextLists = [ "I...... Remampered", ".........wow.......", "The Doctor was right.", "1986 Aug 2, name = Itward, Age = 26. ", "I worked as a Detective, and I was Working on a case at the time.", "and we were fallowing a murderer that kills children and hides them in random place's in the town.", "I remampered that I got a call that they found a girl died and was hidden in a place near my house.", "I saw \"Her\" there....", "Persia.......... My doughter", "........", "\"Hay Dad look what I've made on my computer\"", "\"Wow XD your really good at 3D art, this Looks Amazing\"", "\"I know it took a week ;-; \"", "\"Haha...... that must've been tough\"", "\"but I'am sure your Mother would be proud of you.....\"", "\"Thanks Dad\"................", "THAT MURDERER.....", "I WILL HUNT YOU DOWN!", "IF IT WOULD BE THE LAST THING THAT I WILL DO ", "I WILL KILL YOUUUUUUUUUUUUUUUUUUUUUUUUUUU", "....... To Be Continued", "[Hello I hoped you enjoyed the game]", "[I'am not sure if I'am going to finish this game]", "[but iam might be going to polish it way more and make everything from start agian and finish the story]", "[this is my first game that I fully finish on my own with limited time]", "[if your interested please let me know thats going to make me very happy]" ]
+_Camera = NodePath("../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "Music"

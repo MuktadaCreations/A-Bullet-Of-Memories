@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Kinematics/Player/Animation/Idle1.png" type="Texture" id=1]
+[ext_resource path="res://Kinematics/Player/Animation/Idle2.png" type="Texture" id=2]
+[ext_resource path="res://Kinematics/Player/Animation/Idle3.png" type="Texture" id=3]
+[ext_resource path="res://Kinematics/Player/Animation/Idle4.png" type="Texture" id=4]
+[ext_resource path="res://Main_Menu/MainMenu_Player_Scene_Script.gd" type="Script" id=5]
+[ext_resource path="res://Kinematics/Player/Animation/Rig/Body.png" type="Texture" id=6]
+[ext_resource path="res://Kinematics/Player/Animation/Rig/Hand.png" type="Texture" id=7]
+[ext_resource path="res://Kinematics/Player/Animation/Rig/Hat.png" type="Texture" id=8]
+[ext_resource path="res://Kinematics/Player/Animation/Rig/Leg.png" type="Texture" id=9]
+[ext_resource path="res://Kinematics/Player/Extra/pistol.png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 4.0
+} ]
+
+[sub_resource type="Animation" id=2]
+length = 6.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Shooter:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -15, -0.22, -1.00002, 0.254839, 1.15838, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3, 6 )
+}
+
+[node name="Player" type="Node2D"]
+position = Vector2( 344, 16 )
+scale = Vector2( 4, 4 )
+script = ExtResource( 5 )
+
+[node name="PlayerAnimation" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 1 )
+animation = "Idle"
+
+[node name="PlayerRig" type="Node2D" parent="."]
+scale = Vector2( -1, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerRig"]
+playback_speed = 3.0
+method_call_mode = 1
+anims/Idle = SubResource( 2 )
+
+[node name="Leg2" type="Sprite" parent="PlayerRig"]
+position = Vector2( 1.80712, 15.0919 )
+texture = ExtResource( 9 )
+offset = Vector2( 0, 10 )
+
+[node name="Leg" type="Sprite" parent="PlayerRig"]
+position = Vector2( 1.53488, 15.0919 )
+texture = ExtResource( 9 )
+offset = Vector2( 0, 10 )
+
+[node name="Body" type="Sprite" parent="PlayerRig"]
+texture = ExtResource( 6 )
+
+[node name="Shooter" type="Node2D" parent="PlayerRig"]
+position = Vector2( 1.75, -7.5 )
+
+[node name="pistol" type="Sprite" parent="PlayerRig/Shooter"]
+position = Vector2( 2.24994, 17.25 )
+rotation = 1.57079
+scale = Vector2( 0.41828, 0.41828 )
+texture = ExtResource( 10 )
+
+[node name="HandShooting" type="Sprite" parent="PlayerRig/Shooter"]
+texture = ExtResource( 7 )
+offset = Vector2( 0, 8 )
+
+[node name="hat" type="Sprite" parent="PlayerRig"]
+position = Vector2( 0, -28 )
+texture = ExtResource( 8 )

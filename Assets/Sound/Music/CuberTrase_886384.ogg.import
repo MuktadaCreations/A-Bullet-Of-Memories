@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/CuberTrase_886384.ogg-9f0cae5a89009b3bbb9167ac70e0ef38.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/Music/CuberTrase_886384.ogg"
+dest_files=[ "res://.import/CuberTrase_886384.ogg-9f0cae5a89009b3bbb9167ac70e0ef38.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Kinematics/TextFrame/TextFrame.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Kinematics/TextFrame/Frame.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Ui/Enteract_UI.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sound/FX/TextFX.wav" type="AudioStream" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.6, 28.8 )
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_space = 6
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 4
+font_data = ExtResource( 2 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( -208, 118.4, 214.4, 118.4, 214.4, -118.4, -208, -118.4 )
+
+[node name="TextFrame" type="Area2D"]
+position = Vector2( 704, 456 )
+scale = Vector2( 2.5, 2.5 )
+script = ExtResource( 1 )
+LettersSpeed = 0.3
+LettersSpeedBoosted = 0.5
+FallowCamera = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Manual" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -44.8 )
+texture = ExtResource( 4 )
+
+[node name="Frame" type="Sprite" parent="."]
+visible = false
+position = Vector2( -3.05176e-05, 0 )
+scale = Vector2( 7, 7 )
+texture = ExtResource( 3 )
+
+[node name="GameText" type="RichTextLabel" parent="."]
+visible = false
+margin_left = -174.0
+margin_top = -90.0
+margin_right = 173.0
+margin_bottom = 91.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Space Bar" type="Label" parent="."]
+visible = false
+margin_left = -48.0
+margin_top = 72.0
+margin_right = 48.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.462745, 0.258824, 0.541176, 1 )
+text = "Space"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+position = Vector2( -3.20001, 0 )
+occluder = SubResource( 4 )
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+bus = "FX"
+[connection signal="body_entered" from="." to="." method="_on_TextFrame_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_TextFrame_body_exited"]
